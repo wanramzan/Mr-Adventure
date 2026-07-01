@@ -1,0 +1,7 @@
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes filmFlicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.95; } }
+
+.screen.active { animation: fadeIn 0.5s ease-in; }
+.menu-btn:hover { animation: pulse 0.3s ease-in-out; }
+#game-canvas { animation: filmFlicker 0.1s infinite; }
