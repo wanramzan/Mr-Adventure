@@ -1,0 +1,56 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Courier Prime', 'Georgia', serif; 
+    background: #1a1a1a; 
+    overflow: hidden; 
+    color: #d4af37; 
+}
+#game-container { width: 100vw; height: 100vh; position: relative; }
+.screen { position: absolute; width: 100%; height: 100%; display: none; }
+.screen.active { display: block; }
+
+/* Main Menu */
+#main-menu { background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%); }
+.menu-overlay { position: absolute; width: 100%; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 3px); opacity: 0.5; pointer-events: none; }
+.menu-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+.game-title { font-family: 'Rye', serif; font-size: 4em; color: #d4af37; text-shadow: 3px 3px 6px rgba(0,0,0,0.8); letter-spacing: 5px; }
+.game-subtitle { font-size: 1.5em; color: #c9a961; font-style: italic; margin-bottom: 10px; }
+.year-badge { font-size: 1em; color: #8b7355; border: 1px solid #8b7355; padding: 5px 15px; margin-bottom: 30px; letter-spacing: 2px; }
+
+.menu-buttons { display: flex; flex-direction: column; gap: 15px; width: 250px; }
+.menu-btn { padding: 12px 20px; font-size: 1em; background: #2a1810; border: 2px solid #d4af37; color: #d4af37; cursor: pointer; font-family: 'Courier Prime', serif; letter-spacing: 2px; transition: all 0.3s; }
+.menu-btn:hover { background: #d4af37; color: #2a1810; transform: scale(1.05); }
+
+/* Manual */
+#manual-screen { background: #1a0f0a; overflow-y: auto; }
+.manual-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+.manual-content h2 { font-family: 'Rye', serif; text-align: center; margin-bottom: 30px; font-size: 2.5em; }
+.manual-section { background: rgba(42, 24, 16, 0.8); border: 1px solid #8b7355; padding: 20px; margin-bottom: 20px; }
+.manual-section h3 { color: #c9a961; margin-bottom: 10px; }
+.controls-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.control-item { display: flex; align-items: center; gap: 10px; padding: 8px; background: rgba(139, 115, 85, 0.2); }
+.key { background: #d4af37; color: #2a1810; padding: 4px 8px; font-weight: bold; min-width: 70px; text-align: center; }
+
+/* Game Screen */
+#game-canvas { width: 100%; height: 100%; display: block; background: #000; }
+#hud { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+.hud-top-left, .hud-top-right { position: absolute; top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.hud-top-left { left: 20px; }
+.hud-top-right { right: 20px; align-items: flex-end; }
+.hud-item { display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 8px 12px; border: 1px solid #8b7355; font-size: 0.9em; }
+.hud-bar { width: 100px; height: 12px; background: #1a0f0a; border: 1px solid #8b7355; }
+.hp-bar { height: 100%; background: #ff4444; width: 100%; transition: width 0.3s; }
+.energy-bar { height: 100%; background: #4444ff; width: 100%; transition: width 0.3s; }
+
+/* Dialog */
+#dialog-box { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); width: 80%; max-width: 700px; background: rgba(26, 15, 10, 0.95); border: 2px solid #d4af37; padding: 20px; pointer-events: auto; }
+.dialog-speaker { font-weight: bold; color: #c9a961; margin-bottom: 10px; font-size: 1.2em; }
+.dialog-text { font-size: 1.1em; line-height: 1.5; margin-bottom: 15px; min-height: 40px; }
+.dialog-btn { padding: 8px 15px; background: #d4af37; color: #2a1810; border: none; cursor: pointer; font-weight: bold; float: right; }
+
+/* Overlays */
+.overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; pointer-events: auto; }
+.overlay.hidden { display: none; }
+.pause-content { background: #2a1810; border: 2px solid #d4af37; padding: 40px; text-align: center; }
+.pause-content h2 { font-family: 'Rye', serif; margin-bottom: 20px; }
+.hidden { display: none !important; }
