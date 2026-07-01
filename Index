@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lost Legacy: 1920s Retro Edition</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Main Menu -->
+        <div id="main-menu" class="screen active">
+            <div class="menu-overlay"></div>
+            <div class="menu-content">
+                <h1 class="game-title">THE LOST LEGACY</h1>
+                <h2 class="game-subtitle">Chronicles of Arkana</h2>
+                <p class="year-badge">Est. 1920 • Retro Edition</p>
+                <div class="menu-buttons">
+                    <button class="menu-btn" id="btn-start">START ADVENTURE</button>
+                    <button class="menu-btn" id="btn-manual">MANUAL</button>
+                    <button class="menu-btn" id="btn-settings">SETTINGS</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manual Screen -->
+        <div id="manual-screen" class="screen">
+            <div class="manual-content">
+                <h2>📜 GAME MANUAL</h2>
+                <div class="manual-section">
+                    <h3>📖 STORY</h3>
+                    <p>Tahun 1920. Dunia kehilangan sumber tenaga misteri - Arkana Crystal. Anda adalah seorang penjelajah muda yang dipilih oleh AI penjaga dunia bernama ORION. Misi anda: mengembara ke lima kawasan misteri untuk mendapatkan semula lima serpihan Arkana Crystal.</p>
+                </div>
+                <div class="manual-section">
+                    <h3>🎮 CONTROLS</h3>
+                    <div class="controls-grid">
+                        <div class="control-item"><span class="key">W / ↑</span> Lompat / Panjat</div>
+                        <div class="control-item"><span class="key">S / ↓</span> Tunduk / Turun</div>
+                        <div class="control-item"><span class="key">A / ←</span> Bergerak Kiri</div>
+                        <div class="control-item"><span class="key">D / →</span> Bergerak Kanan</div>
+                        <div class="control-item"><span class="key">SPACE</span> Lompat</div>
+                        <div class="control-item"><span class="key">F</span> Serang / Lawan</div>
+                        <div class="control-item"><span class="key">E</span> Interaksi</div>
+                    </div>
+                </div>
+                <div class="manual-section">
+                    <h3>️ MECHANICS</h3>
+                    <ul>
+                        <li><strong>PANJAT:</strong> Tekan W/↑ apabila berdekatan dinding.</li>
+                        <li><strong>TUNDUK:</strong> Tekan S/↓ untuk mengelak serangan rendah.</li>
+                        <li><strong>LOMPAT:</strong> Tekan SPACE untuk melompat.</li>
+                        <li><strong>LAWAN:</strong> Tekan F untuk menyerang musuh.</li>
+                    </ul>
+                </div>
+                <button class="menu-btn" id="btn-back-menu">BACK TO MENU</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <canvas id="game-canvas"></canvas>
+            
+            <!-- HUD -->
+            <div id="hud">
+                <div class="hud-top-left">
+                    <div class="hud-item">❤️ <div class="hud-bar"><div class="hp-bar" id="hp-bar"></div></div> <span id="hp-text">100</span></div>
+                    <div class="hud-item">⚡ <div class="hud-bar"><div class="energy-bar" id="energy-bar"></div></div> <span id="energy-text">100</span></div>
+                </div>
+                <div class="hud-top-right">
+                    <div class="hud-item">💎 <span id="crystal-text">0/5</span></div>
+                    <div class="hud-item mission-text"> <span id="mission-text">Cari Magic Leaves</span></div>
+                </div>
+            </div>
+
+            <!-- Dialog Box -->
+            <div id="dialog-box" class="hidden">
+                <div class="dialog-content">
+                    <div class="dialog-speaker" id="dialog-speaker">ORION</div>
+                    <div class="dialog-text" id="dialog-text"></div>
+                    <button class="dialog-btn" id="dialog-next">NEXT ▶</button>
+                </div>
+            </div>
+
+            <!-- Pause Menu -->
+            <div id="pause-menu" class="overlay hidden">
+                <div class="pause-content">
+                    <h2>PAUSED</h2>
+                    <button class="menu-btn" id="btn-resume">RESUME</button>
+                    <button class="menu-btn" id="btn-quit">QUIT TO MENU</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/collision.js"></script>
+    <script src="js/level1.js"></script>
+</body>
+</html>
